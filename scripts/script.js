@@ -6,11 +6,9 @@ makeGrid(ROWS,COLS);
 
 document.addEventListener('mousedown',function (){
     mousedown=true;
-    console.log("down");
 });
 document.addEventListener('mouseup',function (){
     mousedown=false;
-    console.log("up");
 });
 function makeGrid(rows,cols){
     let container = document.querySelector(".container");
@@ -26,9 +24,12 @@ function makeGrid(rows,cols){
         for (var j=0; j<cols;j++){
             let cell = document.createElement('div');
             cell.setAttribute('class','cell');
+            cell.value = 0;
             cell.addEventListener("mouseover",function(e){
-                console.log("CALLBACK");
-                if (mousedown) e.target.setAttribute("style",'background-color: '+color)
+                //if (mousedown) {
+                    color = 255 - 15*(++e.target.value);
+                    e.target.setAttribute("style",'background-color: rgb('+color+','+color+','+color+')');
+                //}
             })
             grid_rows[i].appendChild(cell);
         }
@@ -47,6 +48,7 @@ btn.addEventListener("click", function(e){
     let allCells = document.getElementsByClassName('cell')
     for(var i = 0; i< allCells.length; i++){
         allCells[i].setAttribute('style','background-color: white;');
+        allCells[i].value = 0;
     }
 });
 
@@ -54,5 +56,8 @@ btn = document.getElementById('new_btn');
 btn.addEventListener("click",function(e){
     clearGrid();
     let newGridSize = parseInt(prompt("Enter a grid size between 1 and 100:"));
+    while (Number.isNaN(newGridSize) ||  newGridSize > 100 || newGridSize < 0){
+        newGridSize = parseInt(prompt("Let's try that again! \n Enter a grid size between 1 and 100:"));
+    }
     makeGrid(newGridSize,newGridSize);
 });

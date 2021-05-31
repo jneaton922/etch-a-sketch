@@ -1,0 +1,59 @@
+
+h1{
+    margin: auto;
+    text-align: center;
+    color: #9e2a2b;
+    border-bottom: 2px solid #fff3b0
+}
+.container {
+    margin: auto;
+    width:40%;
+    height:40%;
+    vertical-align: middle;
+    border: 10px solid #540b0e;
+    background-color:white;
+}
+
+.row {
+    width:100%;
+    height: 40px;
+    display:flex;
+    justify-content: center;
+    padding: 0px;
+}
+.cell{
+    width: 6%;
+    height:100%;
+    border: 1px solid rgb(70, 70, 70);
+    flex-shrink: 1;
+    flex-basis: 1
+}
+
+
+
+button, .colorPicker {
+    text-align:center;
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+    color:#fff3b0;
+    background-color: #335c67;
+}
+.buttons {
+    width: 40%;
+    margin: 3rem auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+body {
+    background-color: #e09f3e;
+}
+
+coolors{
+    color: #335c67;
+    color: #fff3b0;
+    color: #e09f3e;
+    color: #9e2a2b;
+    color: #540b0e;
+}
